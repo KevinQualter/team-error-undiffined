@@ -9,12 +9,14 @@ public class FraMain extends JFrame {
         add(new PanMain());
 
         Toolkit tk = Toolkit.getDefaultToolkit();
-        int xSize = ((int) tk.getScreenSize().getWidth());
-        int ySize = ((int) tk.getScreenSize().getHeight());
+        //int xSize = ((int) tk.getScreenSize().getWidth());
+        int xSize = 500;
+        //int ySize = ((int) tk.getScreenSize().getHeight());
+        int ySize = 500;
         setSize(xSize, ySize);
         //http://www.coderanch.com/t/341780/GUI/java/set-Jframe-full-screen
 
-        setResizable(false);
+        //setResizable(false);
         setTitle("insert name here");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
