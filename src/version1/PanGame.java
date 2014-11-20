@@ -23,6 +23,7 @@ public class PanGame extends JPanel  implements ActionListener {
     
 
     public PanGame() {
+        super();
         yeti = new Yeti();
         addKeyListener(new ActionListener());
         setFocusable(true);

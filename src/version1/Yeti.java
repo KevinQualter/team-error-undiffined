@@ -1,4 +1,3 @@
-
 package version1;
 
 import java.awt.Image;
@@ -6,6 +5,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class Yeti {
+
     private Image ImgYeti;
     int i;
     int x, y, bx, by, dx, dy;
@@ -14,7 +14,10 @@ public class Yeti {
     Image arnRunning_R[] = new Image[2];
     private final int SPEED = 8;
     boolean left, right, up, down;
-    public Yeti(){
+
+    public Yeti() {
+        arnRunning_R[0] = i1.getImage();
+        arnRunning_R[1] = i2.getImage();
         x = 350;
         y = 238;
         dx = 0;
@@ -24,6 +27,7 @@ public class Yeti {
         up = false;
         down = false;
     }
+
     public void move() {
         x += dx;
         y += dy;
@@ -42,10 +46,14 @@ public class Yeti {
         ImgYeti = arnRunning_R[i];
         if (right == true) {
             i = 1;
-            System.out.println("Right");
+            if (i == 1) {
+                System.out.println("Right");
+            }
         } else if (left == true) {
             i = 0;
-            System.out.println("Left");
+            if (i == 0) {
+                System.out.println("Left");
+            }
         } else if (up == true) {
             System.out.println("Up");
 
@@ -54,6 +62,7 @@ public class Yeti {
         }
         return ImgYeti;
     }
+
     public void keyPressed(KeyEvent k) {
         int code = k.getKeyCode();
         if (code == KeyEvent.VK_A) {
@@ -69,7 +78,7 @@ public class Yeti {
             down = true;
             dy = SPEED;
         }
-        }
+    }
 
     public void keyReleased(KeyEvent k) {
         int code = k.getKeyCode();
