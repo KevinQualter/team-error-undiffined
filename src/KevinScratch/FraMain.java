@@ -11,9 +11,9 @@ public class FraMain extends JFrame {
 
         Toolkit tk = Toolkit.getDefaultToolkit();
         //int xSize = ((int) tk.getScreenSize().getWidth());
-        int xSize = 500;
+        int xSize = 1200;
         //int ySize = ((int) tk.getScreenSize().getHeight());
-        int ySize = 500;
+        int ySize = 700;
         setSize(xSize, ySize);
         //http://www.coderanch.com/t/341780/GUI/java/set-Jframe-full-screen
 

@@ -8,17 +8,20 @@ import javax.swing.*;
 public class Yeti {
 
     private Image ImgYeti;
-    int i;
+    int i, f;
     int x, y, bx, by, dx, dy;
     ImageIcon i1 = new ImageIcon("YetiWalkLeft1.png");
     ImageIcon i2 = new ImageIcon("YetiWalkRight1.png");
-    Image arnRunning_R[] = new Image[2];
+    Image arnRunning[] = new Image[2];
+    public Image ImgMovement[][] = new Image[4][2];
     private final int SPEED = 8;
     boolean left, right, up, down;
 
     public Yeti() {
-        arnRunning_R[0] = i1.getImage();
-        arnRunning_R[1] = i2.getImage();
+        ImgMovement[0][0] = i1.getImage();
+        ImgMovement[0][1] = i2.getImage();
+        arnRunning[0] = i1.getImage();
+        arnRunning[1] = i2.getImage();
         x = 350;
         y = 238;
         dx = 0;
@@ -44,19 +47,19 @@ public class Yeti {
     }
 
     public Image getImage() {
-        ImgYeti = arnRunning_R[i];
+        ImgYeti = ImgMovement[i][f];
         if (right == true) {
-            i = 1;
-            if (i == 1) {
+            f = 0;
+            if (f == 1) {
                 System.out.println("Right");
             }
         } else if (left == true) {
-            i = 0;
-            if (i == 0) {
+            f = 1;
+            if (f == 0) {
                 System.out.println("Left");
             }
         } else if (up == true) {
-            System.out.println("Up");
+            System.out.println("is jumping");
 
         } else if (down == true) {
             System.out.println("Down");
@@ -77,7 +80,7 @@ public class Yeti {
             dy = -SPEED;
         } else if (code == KeyEvent.VK_S) {
             down = true;
-            dy = SPEED;
+            y=650;
         }
     }
 
