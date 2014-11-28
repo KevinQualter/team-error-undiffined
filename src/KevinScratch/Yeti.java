@@ -2,7 +2,10 @@ package KevinScratch;
 
 import version1.*;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.*;
 
 public class Yeti {
@@ -10,18 +13,33 @@ public class Yeti {
     private Image ImgYeti;
     int i, f;
     int x, y, bx, by, dx, dy;
-    ImageIcon i1 = new ImageIcon("YetiWalkLeft1.png");
-    ImageIcon i2 = new ImageIcon("YetiWalkRight1.png");
+    ImageIcon ir1 = new ImageIcon("YetiWalkLeft1.png");
+    ImageIcon il1 = new ImageIcon("YetiWalkRight1.png");
+    ImageIcon ir2 = new ImageIcon("YetiWalkLeft2.png");
+    ImageIcon il2 = new ImageIcon("YetiWalkRight2.png");
+    ImageIcon ir3 = new ImageIcon("YetiWalkLeft3.png");
+    ImageIcon il3 = new ImageIcon("YetiWalkRight3.png");
+    ImageIcon ir4 = new ImageIcon("YetiWalkLeft4.png");
+    ImageIcon il4 = new ImageIcon("YetiWalkRight4.png");
+    ImageIcon ir5 = new ImageIcon("YetiWalkLeft5.png");
+    ImageIcon il5 = new ImageIcon("YetiWalkRight5.png");
     Image arnRunning[] = new Image[2];
-    public Image ImgMovement[][] = new Image[4][2];
+    public Image ImgMovement[][] = new Image[5][2];
     private final int SPEED = 8;
-    boolean left, right, up, down;
+    boolean left, right, up, down, isJuming, isWalking = false;
+    Timer timer;
 
     public Yeti() {
-        ImgMovement[0][0] = i1.getImage();
-        ImgMovement[0][1] = i2.getImage();
-        arnRunning[0] = i1.getImage();
-        arnRunning[1] = i2.getImage();
+        ImgMovement[0][0] = ir1.getImage();
+        ImgMovement[0][1] = il1.getImage();
+        ImgMovement[1][0] = ir2.getImage();
+        ImgMovement[1][1] = il2.getImage();
+        ImgMovement[2][0] = ir3.getImage();
+        ImgMovement[2][1] = il3.getImage();
+        ImgMovement[3][0] = ir4.getImage();
+        ImgMovement[3][1] = il4.getImage();
+        ImgMovement[4][0] = ir5.getImage();
+        ImgMovement[4][1] = il5.getImage();
         x = 350;
         y = 238;
         dx = 0;
@@ -30,12 +48,13 @@ public class Yeti {
         right = false;
         up = false;
         down = false;
+        timer = new Timer(500, updateImage);
+        timer.start();
     }
 
     public void move() {
         x += dx;
         y += dy;
-
     }
 
     public int getX() {
@@ -49,8 +68,7 @@ public class Yeti {
     public Image getImage() {
         ImgYeti = ImgMovement[i][f];
         if (right == true) {
-            f = 0;
-            if (f == 1) {
+            if (f == 0) {
                 System.out.println("Right");
             }
         } else if (left == true) {
@@ -60,7 +78,6 @@ public class Yeti {
             }
         } else if (up == true) {
             System.out.println("is jumping");
-
         } else if (down == true) {
             System.out.println("Down");
         }
@@ -69,6 +86,8 @@ public class Yeti {
 
     public void keyPressed(KeyEvent k) {
         int code = k.getKeyCode();
+        isWalking = true;
+        AnimationMutator();
         if (code == KeyEvent.VK_A) {
             left = true;
             dx = -SPEED;
@@ -80,12 +99,14 @@ public class Yeti {
             dy = -SPEED;
         } else if (code == KeyEvent.VK_S) {
             down = true;
-            y=650;
+            y = 650;
         }
     }
 
     public void keyReleased(KeyEvent k) {
         int code = k.getKeyCode();
+        isWalking = false;
+        i = 0;
         if (code == KeyEvent.VK_A) {
             left = false;
             if (right) {
@@ -112,4 +133,25 @@ public class Yeti {
             }
         }
     }
+    public void AnimationMutator() {
+        if(right == true){
+           f = 0; 
+        }
+        else if(left == true){
+           f = 0; 
+        }
+    }
+    
+    ActionListener updateImage = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                if(isWalking == true){
+                    i++;
+               if (i >=4){
+                   i=0;
+               }
+                }
+                
+            }
+        };
 }
