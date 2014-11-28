@@ -1,11 +1,9 @@
 package KevinScratch;
 
-import version1.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import javax.swing.*;
 
 public class Yeti {
@@ -99,7 +97,9 @@ public class Yeti {
             dy = -SPEED;
         } else if (code == KeyEvent.VK_S) {
             down = true;
-            y = 650;
+            if (y<500){
+                y = 500;
+            }
         }
     }
 
