@@ -5,19 +5,15 @@
  */
 
 package MiguelScratch;
-
+import javax.swing.*;
+import java.awt.*;
 /**
  *
  * @author Miguel
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        new FraMain();
-        
+public class PanStats extends JPanel{
+    
+    public PanStats(){
+        setBackground(Color.blue);
     }
 }
