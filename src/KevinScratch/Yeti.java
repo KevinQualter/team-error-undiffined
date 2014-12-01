@@ -24,8 +24,10 @@ public class Yeti {
     Image arnRunning[] = new Image[2];
     public Image ImgMovement[][] = new Image[5][2];
     private final int SPEED = 8;
-    boolean left, right, up, down, isJuming, isWalking = false;
-    Timer timer;
+    boolean left, right, up, down,canJump = true, isWalking = false;
+    Timer MovementTimer;
+    Timer GravTimer;
+    Timer JumpTimer;
 
     public Yeti() {
         ImgMovement[0][0] = ir1.getImage();
@@ -46,8 +48,12 @@ public class Yeti {
         right = false;
         up = false;
         down = false;
-        timer = new Timer(500, updateImage);
-        timer.start();
+        JumpTimer = new Timer(500,jumpingCheck);
+        JumpTimer.start();
+        GravTimer = new Timer(25, GravDrop);
+        GravTimer.start();
+        MovementTimer = new Timer(100, updateImage);
+        MovementTimer.start();
     }
 
     public void move() {
@@ -93,8 +99,12 @@ public class Yeti {
             right = true;
             dx = SPEED;
         } else if (code == KeyEvent.VK_W) {
-            up = true;
-            dy = -SPEED;
+            if(canJump == true){
+                up = true;
+            dy = -45;
+            canJump = false;
+            }
+            
         } else if (code == KeyEvent.VK_S) {
             down = true;
             if (y<500){
@@ -135,7 +145,7 @@ public class Yeti {
     }
     public void AnimationMutator() {
         if(right == true){
-           f = 0; 
+           f = 1; 
         }
         else if(left == true){
            f = 0; 
@@ -152,6 +162,24 @@ public class Yeti {
                }
                 }
                 
+            }
+        };
+    ActionListener GravDrop = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                if(up == false){
+                    if(y<450){
+                    y+=1;
+                }
+                }
+                
+                
+            }
+        };
+    ActionListener jumpingCheck = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                canJump = true;
             }
         };
 }

@@ -1,0 +1,59 @@
+.LOG
+
+Today I embarked on the task of putting an image into the background for the game,
+it is the end of the class now however and I have not been able to load this however i was able to brush up and
+improve on my knowledge from last year.  This is the true sucess
+
+2:27 PM 21/10/2014
+
+I found code on http://stackoverflow.com/questions/18777893/jframe-background-image to handle 
+a background image, while this helped me load an image to the background it was not in a way that we could use for
+our game but rather our menu.  
+
+2:19 PM 24/10/2014
+
+For the duration of this week so far I have been looking into layouts, this will help kill two birds with one stone
+as we can use a card layout to flip between a menu and then the game and a standard border layout for the actual
+game once we get it running. I am Keeping the JLabel code for an image in hopes of being able to implement this as
+a menu in a stable release.
+
+
+2:17 PM 28/10/2014
+
+Today is the day we submit our work in progress and for the duration of the day we were working on that.  For the 
+next WIP period these journals will hopefully be daily to journalize a more accurate order of events for this period
+
+
+1:02 AM 03/11/2014
+
+Worked on the menu screen today; experimenting with the card layout tomorrow to switch between the game screen and the menu.
+
+12:25 PM 10/11/2014
+
+Last week, I got a cardlayout working in which buttons would bring the end user to different panels when clicked. The
+Problem with this was the placement of the buttons.  To solve this issue I am experimenting with gridlayout to reach the 
+button placement desired.
+
+2:11 PM 13/11/2014
+
+This week I have been working on getting the cardlayout to work, combined to dealing with the frustration of being
+behind and being surpassed.  The cardlayout works, but the button is beside the image not on top of it.  Instead of
+the button being a breakthrough it has just been an extra headache.  My nesting may be to specific with each panel
+having its own class.
+
+1:04 PM 19/11/2014
+
+Throughout our projects life cycle so far, Team management has declined and we have not been working in unison.
+In addition to this, because some members need extra help with their code...  actually coding has not been at a 12U
+level.
+To fix this I have set up a plan of action:
+	Once a day, team will meet before,during or after class to discuss difficulties.
+	I will document the problems so that there is a clear objective for the next day.
+	Kevin and Ashton are now working side-by-side, as they were working on two very similar things.
+
+With this plan of action I hope to catch problems preemptively before they become a much grander problem.
+
+12:28 PM 25/11/2014
+
+We reset our frame size to a fixed position to avoid inconsistancies.  The set frame size fixed a lot of issues, 
+with this we can keep consistancy with coordinates, and not have to worry about screensizes that are larger than ours.
