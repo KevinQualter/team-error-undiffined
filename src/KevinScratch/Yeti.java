@@ -101,14 +101,16 @@ public class Yeti {
         } else if (code == KeyEvent.VK_W) {
             if(canJump == true){
                 up = true;
-            dy = -45;
+                if(y < 150){
+                    dy = -45;
+                }
             canJump = false;
             }
             
         } else if (code == KeyEvent.VK_S) {
             down = true;
-            if (y<500){
-                y = 500;
+            if (y<450){
+                y = 450;
             }
         }
     }

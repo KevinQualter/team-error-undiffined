@@ -1,5 +1,6 @@
 package KevinScratch;
 
+import java.awt.Color;
 import version1.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -21,7 +22,9 @@ public class PanGame extends JPanel implements ActionListener {
 
     
     public PanGame() {
+        
         super();
+        setBackground(Color.black);
         yeti = new Yeti();
         addKeyListener(new MovementChecker());
         setFocusable(true);
