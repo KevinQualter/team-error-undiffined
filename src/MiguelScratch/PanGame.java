@@ -17,9 +17,9 @@ public class PanGame extends JPanel{
         setLayout(null);
         setBackground(Color.ORANGE);
        //position and size of a button
-        btnPause.setBounds(20, 20, 100, 50);
+        //btnPause.setBounds(20, 20, 100, 50);
         
         // add the button
-        add(btnPause);
+        //add(btnPause);
     }
 }
