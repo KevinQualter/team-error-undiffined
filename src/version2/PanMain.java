@@ -13,11 +13,12 @@ import javax.swing.JPanel;
  * @author qualk2343
  */
 public class PanMain extends JPanel{
-    PanStats panstats = new PanStats();
     PanGame pangame = new PanGame();
+    PanStats panstats = new PanStats();
     public PanMain(){
+        
         setLayout(new BorderLayout());
-        add(panstats, BorderLayout.SOUTH);
         add(pangame, BorderLayout.CENTER);
+        add(panstats, BorderLayout.SOUTH);
     }
 }
