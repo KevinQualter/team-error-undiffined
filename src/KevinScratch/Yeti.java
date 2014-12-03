@@ -11,18 +11,8 @@ public class Yeti {
     private Image ImgYeti;
     int i, f;
     int x, y, bx, by, dx, dy;
-    ImageIcon ir1 = new ImageIcon("YetiWalkLeft1.png");
-    ImageIcon il1 = new ImageIcon("YetiWalkRight1.png");
-    ImageIcon ir2 = new ImageIcon("YetiWalkLeft2.png");
-    ImageIcon il2 = new ImageIcon("YetiWalkRight2.png");
-    ImageIcon ir3 = new ImageIcon("YetiWalkLeft3.png");
-    ImageIcon il3 = new ImageIcon("YetiWalkRight3.png");
-    ImageIcon ir4 = new ImageIcon("YetiWalkLeft4.png");
-    ImageIcon il4 = new ImageIcon("YetiWalkRight4.png");
-    ImageIcon ir5 = new ImageIcon("YetiWalkLeft5.png");
-    ImageIcon il5 = new ImageIcon("YetiWalkRight5.png");
-    Image arnRunning[] = new Image[2];
-    public Image ImgMovement[][] = new Image[5][2];
+    LoadImages loadImage = new LoadImages();
+    Image ImgMovement[][] = loadImage.GetYeti();
     private final int SPEED = 8;
     boolean left, right, up, down,canJump = true, isWalking = false;
     Timer MovementTimer;
@@ -30,16 +20,6 @@ public class Yeti {
     Timer JumpTimer;
 
     public Yeti() {
-        ImgMovement[0][0] = ir1.getImage();
-        ImgMovement[0][1] = il1.getImage();
-        ImgMovement[1][0] = ir2.getImage();
-        ImgMovement[1][1] = il2.getImage();
-        ImgMovement[2][0] = ir3.getImage();
-        ImgMovement[2][1] = il3.getImage();
-        ImgMovement[3][0] = ir4.getImage();
-        ImgMovement[3][1] = il4.getImage();
-        ImgMovement[4][0] = ir5.getImage();
-        ImgMovement[4][1] = il5.getImage();
         x = 350;
         y = 238;
         dx = 0;
@@ -73,7 +53,6 @@ public class Yeti {
         ImgYeti = ImgMovement[i][f];
         if (right == true) {
             if (f == 0) {
-                System.out.println("Right");
             }
         } else if (left == true) {
             f = 1;
@@ -100,10 +79,8 @@ public class Yeti {
             dx = SPEED;
         } else if (code == KeyEvent.VK_W) {
             if(canJump == true){
-                up = true;
-                if(y < 150){
-                    dy = -45;
-                }
+                up = true;                    
+                dy = -45;
             canJump = false;
             }
             

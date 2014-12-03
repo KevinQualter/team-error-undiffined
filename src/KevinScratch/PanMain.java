@@ -6,7 +6,6 @@ package KevinScratch;
 
 import version1.*;
 import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -16,11 +15,10 @@ import javax.swing.JPanel;
 public class PanMain extends JPanel{
     PanGame pangame = new PanGame();
     PanStats panstats = new PanStats();
-    ImageIcon imgiTime = new ImageIcon("Time.png");
     public PanMain(){
         
         setLayout(new BorderLayout());
-        //add(panstats, BorderLayout.SOUTH);
         add(pangame, BorderLayout.CENTER);
+        add(panstats, BorderLayout.SOUTH);
     }
 }
