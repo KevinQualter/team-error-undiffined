@@ -13,11 +13,10 @@ import java.awt.event.ActionListener;
 
 public class PanGame extends JPanel implements ActionListener {
 
-    private KevinScratch.Yeti yeti;
+    private Yeti yeti;
+    LoadImages loadImages = new LoadImages();
     int f = 0;
     int i = 0;
-    int x = 0;
-    int y = 0;
     private Timer timer;
 
     
@@ -25,7 +24,7 @@ public class PanGame extends JPanel implements ActionListener {
         
         super();
         setBackground(Color.black);
-        yeti = new KevinScratch.Yeti();
+        yeti = new Yeti();
         addKeyListener(new MovementChecker());
         setFocusable(true);
         timer = new Timer(80, this);
@@ -38,7 +37,9 @@ public class PanGame extends JPanel implements ActionListener {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
+        g2d.drawImage(loadImages.GetimgGameBG(),0,0,null);
         g2d.drawImage(yeti.getImage(), yeti.getX(), yeti.getY(), null);
+        //System.out.println(yeti.getX() + " is x and y is " + yeti.getY());
     }
 
     private class MovementChecker extends KeyAdapter {

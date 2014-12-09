@@ -41,7 +41,7 @@ public class PanStats extends JPanel {
 
     public PanStats() {
         setPreferredSize(new Dimension(1250, 75));
-        iBG = imgres.GetimgBG();
+        iBG = imgres.GetimgUIBG();
         ariNumbers = imgres.GetNumbers();
         imgTime = imgres.GetimgTime();
         imgScore = imgres.GetimgScore();
@@ -58,9 +58,7 @@ public class PanStats extends JPanel {
     }
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        ////
         g.drawImage(iBG, 0, 0, null);
-        ////
         g.drawImage(imgTime, 950, 10, null);
         g.drawImage(ariNumbers[(Time1)], 950 + imgTime.getWidth(this), 10, null);
         g.drawImage(ariNumbers[(Time2)], 950 + imgTime.getWidth(this) + 30, 10, null);

@@ -1,4 +1,5 @@
 package version3;
+
 import version2.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -9,18 +10,17 @@ import javax.swing.*;
 public class Yeti {
 
     private Image ImgYeti;
-    int i, f;
-    int x, y, bx, by, dx, dy;
+    private int i, f,x, y, bx, by, dx, dy;
     KevinScratch.LoadImages loadImage = new KevinScratch.LoadImages();
     Image ImgMovement[][] = loadImage.GetYeti();
     private final int SPEED = 8;
-    boolean left, right, up, down,canJump = true, isWalking = false;
-    Timer MovementTimer;
-    Timer GravTimer;
-    Timer JumpTimer;
+    boolean left, right, up, down, canJump = true, isJumping = false, isWalking = false;
+    Timer TimerMovement;
+    Timer TimerGrav;
+    Timer TimerJump;
 
     public Yeti() {
-        x = 350;
+        x = 10;
         y = 238;
         dx = 0;
         dy = 0;
@@ -28,12 +28,12 @@ public class Yeti {
         right = false;
         up = false;
         down = false;
-        JumpTimer = new Timer(500,jumpingCheck);
-        JumpTimer.start();
-        GravTimer = new Timer(25, GravDrop);
-        GravTimer.start();
-        MovementTimer = new Timer(100, updateImage);
-        MovementTimer.start();
+        TimerJump = new Timer(500, jumpingCheck);
+        TimerJump.start();
+        TimerGrav = new Timer(25, GravDrop);
+        TimerGrav.start();
+        TimerMovement = new Timer(100, updateImage);
+        TimerMovement.start();
     }
 
     public void move() {
@@ -56,38 +56,38 @@ public class Yeti {
             }
         } else if (left == true) {
             f = 1;
-            if (f == 0) {
-                System.out.println("Left");
+            if (f == 0) {;
             }
         } else if (up == true) {
-            System.out.println("is jumping");
         } else if (down == true) {
-            System.out.println("Down");
         }
         return ImgYeti;
     }
 
     public void keyPressed(KeyEvent k) {
         int code = k.getKeyCode();
-        isWalking = true;
-        AnimationMutator();
+        //AnimationMutator();
         if (code == KeyEvent.VK_A) {
+            isWalking = true;
             left = true;
             dx = -SPEED;
+            AnimationMutator();
         } else if (code == KeyEvent.VK_D) {
+            isWalking = true;
             right = true;
             dx = SPEED;
+            AnimationMutator();
         } else if (code == KeyEvent.VK_W) {
-            if(canJump == true){
-                up = true;                    
+            if (canJump == true) {
+                up = true;
                 dy = -45;
-            canJump = false;
+                canJump = false;
             }
-            
+
         } else if (code == KeyEvent.VK_S) {
             down = true;
-            if (y<450){
-                y = 450;
+            if (y < 375) {
+                y = 10;
             }
         }
     }
@@ -122,43 +122,45 @@ public class Yeti {
             }
         }
     }
+
     public void AnimationMutator() {
-        if(right == true){
-           f = 1; 
-        }
-        else if(left == true){
-           f = 0; 
+        if (right == true) {
+            f = 1;
+        } else if (left == true) {
+            f = 0;
         }
     }
-    
     ActionListener updateImage = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                if(isWalking == true){
-                    i++;
-               if (i >=4){
-                   i=0;
-               }
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            if (isWalking == true) {
+                i++;
+                if (i >= 4) {
+                    i = 0;
                 }
-                
             }
-        };
+
+        }
+    };
     ActionListener GravDrop = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                if(up == false){
-                    if(y<450){
-                    y+=1;
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            if (up == false) {
+                if (y < 400) {
+                    y += 1;
                 }
-                }
-                
-                
             }
-        };
+
+
+        }
+    };
     ActionListener jumpingCheck = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                canJump = true;
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            if (isJumping == false){
+                
             }
-        };
+            canJump = true;
+        }
+    };
 }
