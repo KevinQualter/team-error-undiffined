@@ -10,8 +10,8 @@ import javax.swing.*;
 public class Yeti {
 
     private Image ImgYeti;
-    private int i, f,x, y, bx, by, dx, dy;
-    KevinScratch.LoadImages loadImage = new KevinScratch.LoadImages();
+    private int i, f,x, y, dx, dy;
+    LoadImages loadImage = new LoadImages();
     Image ImgMovement[][] = loadImage.GetYeti();
     private final int SPEED = 8;
     boolean left, right, up, down, canJump = true, isJumping = false, isWalking = false;
