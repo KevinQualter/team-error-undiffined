@@ -3,9 +3,6 @@
  * and open the template in the editor.
  */
 package version3;
-
-import version2.*;
-import version1.*;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 

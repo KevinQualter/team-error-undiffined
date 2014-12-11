@@ -1,7 +1,6 @@
 package version3;
 
-import MiguelScratch.PanMainMenu;
-import MiguelScratch.PanPauseMenu;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -13,7 +12,7 @@ public class FraMain extends JFrame {
 
     PanMainMenu panMainMenu = new PanMainMenu();
     PanGame panGame = new PanGame();
-    PanPauseMenu panpausemenu = new PanPauseMenu();
+    //PanPauseMenu panpausemenu = new PanPauseMenu();
     PanMain panMain = new PanMain();
     //PanStats panstats = new PanStats();
 

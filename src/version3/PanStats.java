@@ -1,6 +1,5 @@
 package version3;
 
-import version2.*;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

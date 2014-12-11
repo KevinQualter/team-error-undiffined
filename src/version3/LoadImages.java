@@ -1,8 +1,4 @@
 package version3;
-
-
-import version2.*;
-import KevinScratch.*;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 

@@ -1,6 +1,5 @@
 package version3;
 
-import version2.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

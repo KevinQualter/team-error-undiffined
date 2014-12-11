@@ -11,7 +11,6 @@ package version3;
  * @author Miguel
  */
 
-import MiguelScratch.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;

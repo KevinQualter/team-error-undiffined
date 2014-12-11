@@ -1,7 +1,5 @@
 package version3;
-import version2.*;
 import java.awt.Color;
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
