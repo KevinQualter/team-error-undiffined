@@ -40,43 +40,6 @@ public class FraMain extends JFrame {
             add(panMainMenu);
             hasDrawnPanMainMenu = true;
         }
-        /*panMainMenu.btnStats.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent me) {
-                if (hasDrawnStats == false) {
-                    //add(panstats);
-                    hasDrawnStats = true;
-                }
-                panMainMenu.setVisible(false);
-                //panstats.setVisible(true);
-            }
-        });*/
-        // mouse listener for the escape button on the game pannel
-        /*panGame.btnPause.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent me) {
-                if (hasDrawnpanpausemenu == false) {
-                    add(panpausemenu);
-                    hasDrawnpanpausemenu = true;
-                }
-
-                panGame.setVisible(false);
-                panpausemenu.setVisible(true);
-            }
-        });
-
-        panpausemenu.btnBacktoGame.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent me) {
-                panpausemenu.setVisible(false);
-                panGame.setVisible(true);
-            }
-        });
-
-        panpausemenu.btnMainMenu.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent me) {
-                panpausemenu.setVisible(false);
-                panMainMenu.setVisible(true);
-            }
-        });*/
         panMainMenu.btnExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);

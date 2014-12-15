@@ -1,7 +1,7 @@
 package version4;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-
+//ashton has all of these split up in a different branch
 public class LoadImages {
     ////Ashton's Images
     ImageIcon imgiTime = new ImageIcon("Time.png");
