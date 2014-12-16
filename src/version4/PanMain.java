@@ -1,4 +1,6 @@
 package version4;
+
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 public class PanMain extends JPanel{
