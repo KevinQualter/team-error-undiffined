@@ -1,19 +1,23 @@
 package version4;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 public class PanGame extends JPanel implements ActionListener {
 
     private Yeti yeti;
-    LoadImages loadImages = new LoadImages();
-    int f = 0;
+    ImageIcon imgGBG = new ImageIcon("GameBackground.png");
+    Image iGBG;
+    int nFrame = 0;
     int i = 0;
     private Timer timer;
 
@@ -21,6 +25,7 @@ public class PanGame extends JPanel implements ActionListener {
     public PanGame() {
         
         super();
+        iGBG = imgGBG.getImage();
         setBackground(Color.black);
         yeti = new Yeti();
         addKeyListener(new MovementChecker());
@@ -35,7 +40,7 @@ public class PanGame extends JPanel implements ActionListener {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(loadImages.GetimgGameBG(),0,0,null);
+        g2d.drawImage(iGBG,0,0,null);
         g2d.drawImage(yeti.getImage(), yeti.getX(), yeti.getY(), null);
         //System.out.println(yeti.getX() + " is x and y is " + yeti.getY());
     }

@@ -1,19 +1,26 @@
 package version4;
 
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class PanStats extends JPanel {
-
-    LoadImages imgres = new LoadImages();
-    Image iBG;
+////
+    ImageIcon iiLoadNums;
+    ImageIcon imgiTime = new ImageIcon("Time.png");
+    ImageIcon imgiScore = new ImageIcon("Score.png");
+    ImageIcon imgiLives = new ImageIcon("Lives.png");
+    ImageIcon imgiCoins = new ImageIcon("Coins.png");
+    ImageIcon imgUIBG = new ImageIcon("UIBackground.png");
     Image ariNumbers[] = new Image[10];
+    Image iUIBG;
     Image imgTime;
     Image imgScore;
     Image imgLives;
@@ -21,6 +28,8 @@ public class PanStats extends JPanel {
     Image imgTimeCount1;
     Image imgTimeCount2;
     Image imgTimeCount3;
+    ////
+    Image iBG;
     int Time1 = 1;
     int Time2 = 8;
     int Time3 = 0;
@@ -40,12 +49,17 @@ public class PanStats extends JPanel {
 
     public PanStats() {
         setPreferredSize(new Dimension(1250, 75));
-        iBG = imgres.GetimgUIBG();
-        ariNumbers = imgres.GetNumbers();
-        imgTime = imgres.GetimgTime();
-        imgScore = imgres.GetimgScore();
-        imgLives = imgres.GetimgLives();
-        imgCoins = imgres.GetimgCoins();
+        ////
+        for (int i = 0; i < 10; i++) {
+            iiLoadNums = new ImageIcon("img" + i + ".png");
+            ariNumbers[i] = iiLoadNums.getImage();
+        }
+        imgCoins = imgiCoins.getImage();
+        iUIBG = imgUIBG.getImage();
+        imgTime = imgiTime.getImage();
+        imgScore = imgiScore.getImage();
+        imgLives = imgiLives.getImage();
+        ////
         timer = new Timer(1000, updateImage);
         timer.start();
     }
@@ -57,7 +71,7 @@ public class PanStats extends JPanel {
     }
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g.drawImage(iBG, 0, 0, null);
+        g.drawImage(iUIBG, 0, 0, null);
         g.drawImage(imgTime, 950, 10, null);
         g.drawImage(ariNumbers[(Time1)], 950 + imgTime.getWidth(this), 10, null);
         g.drawImage(ariNumbers[(Time2)], 950 + imgTime.getWidth(this) + 30, 10, null);

@@ -10,6 +10,7 @@ public class Yeti {
 
     private Image ImgYeti;
     private int i, f, x, y, dx, dy;
+    ImageIcon iiLoadYeti;
     LoadImages loadImage = new LoadImages();
     Image ImgMovement[][] = loadImage.GetYeti();
     private final int SPEED = 15;
@@ -19,6 +20,12 @@ public class Yeti {
     Timer TimerJump;
 
     public Yeti() {
+        for (int j = 0; j < 2; j++) {
+            for (int i = 0; i < 5; i++) {
+                iiLoadYeti = new ImageIcon("Yeti" + j + i + ".png");
+                ImgMovement[i][j] = iiLoadYeti.getImage();
+            }
+        } 
         x = 10;
         y = 238;
         dx = 0;

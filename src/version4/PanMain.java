@@ -3,13 +3,9 @@
  * and open the template in the editor.
  */
 package version4;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
-
-/**
- *
- * @author qualk2343
- */
 public class PanMain extends JPanel{
     PanGame pangame = new PanGame();
     PanStats panstats = new PanStats();
