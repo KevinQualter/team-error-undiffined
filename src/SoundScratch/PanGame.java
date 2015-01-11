@@ -1,5 +1,7 @@
 package SoundScratch;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,12 +12,15 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.ImageIcon;
 
 public class PanGame extends JPanel implements ActionListener {
 
     private Yeti yeti;
     ImageIcon imgGBG = new ImageIcon("GameBackground.png");
+    File BackGroundMusic = new File("BackGroundMusic.wav");
+    AudioClip BGMusic;
     Image iGBG;
     int nFrame = 0;
     int i = 0;
@@ -25,6 +30,12 @@ public class PanGame extends JPanel implements ActionListener {
     public PanGame() {
         
         super();
+        try {
+            BGMusic = Applet.newAudioClip(BackGroundMusic.toURL());
+
+        } catch (Exception e) {
+        }
+        BGMusic.play();
         iGBG = imgGBG.getImage();
         setBackground(Color.black);
         yeti = new Yeti();
