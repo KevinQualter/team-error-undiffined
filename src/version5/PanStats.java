@@ -89,8 +89,8 @@ public class PanStats extends JPanel {
                 ////When time runs out, reset the timer and lose a life
                 if (Time1 == 0 && Time2 == 0 && Time3 == 0) {
                     Time1 = 0;
-                    Time2 = 1;
-                    Time3 = 0;
+                    Time2 = 6;
+                    Time3 = 5;
                     nLife--;
                     //exit game if time hits 0 while player has one life left
                             if(nLife == 0){
