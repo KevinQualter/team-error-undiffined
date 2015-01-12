@@ -26,9 +26,8 @@ public class PanGame extends JPanel implements ActionListener {
     int i = 0;
     private Timer timer, timer2;
 
-    
     public PanGame() {
-        
+
         super();
         try {
             BGMusic = Applet.newAudioClip(BackGroundMusic.toURL());
@@ -46,32 +45,22 @@ public class PanGame extends JPanel implements ActionListener {
         timer.start();
         timer2 = new Timer(80, this);
         timer2.start();
-        
+
     }
+
     public void actionPerformed(ActionEvent arg0) {
         yeti.move();
         repaint();
     }
+
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(iGBG,0,0,null);
+        g2d.drawImage(iGBG, 0, 0, null);
         g2d.drawImage(yeti.getImage(), yeti.getX(), yeti.getY(), null);
         //System.out.println(yeti.getX() + " is x and y is " + yeti.getY());
     }
-private class AttackChecker extends KeyAdapter {
-        @Override
-        public void keyReleased(KeyEvent k2) {
-            yeti.keyReleased2(k2);
-        }
 
-        @Override
-        public void keyPressed(KeyEvent k2) {
-            yeti.keyPressed2(k2);
-        }
-    }
-    
-    
     private class MovementChecker extends KeyAdapter {
 
         @Override
@@ -84,5 +73,17 @@ private class AttackChecker extends KeyAdapter {
             yeti.keyPressed(k);
         }
     }
-    
+
+    private class AttackChecker extends KeyAdapter {
+
+        @Override
+        public void keyReleased(KeyEvent k2) {
+            yeti.keyReleased2(k2);
+        }
+
+        @Override
+        public void keyPressed(KeyEvent k2) {
+            yeti.keyPressed2(k2);
+        }
     }
+}

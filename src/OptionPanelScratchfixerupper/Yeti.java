@@ -1,12 +1,11 @@
-package SoundScratch;
+package OptionPanelScratchfixerupper;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
+
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.File;
 import javax.swing.*;
 
 public class Yeti {
@@ -14,12 +13,10 @@ public class Yeti {
     private Image ImgYeti;
     private int i, f, x, y, dx, dy;
     ImageIcon iiLoadYeti;
-    File AttackSound1 = new File("AttackSound1.wav");
-    AudioClip Attack1;
-    //LoadImages loadImage = new LoadImages();
-    Image ImgMovement[][] = new Image[5][2];
+    LoadImages loadImage = new LoadImages();
+    Image ImgMovement[][] = loadImage.GetYeti();
     private final int SPEED = 15;
-    boolean left, right, up, down, canJump = true, isJumping = false, isWalking = false, canAttack = true;
+    boolean left, right, up, down, canJump = true, isJumping = false, isWalking = false;
     Timer TimerMovement;
     Timer TimerGrav;
     Timer TimerJump;
@@ -30,13 +27,7 @@ public class Yeti {
                 iiLoadYeti = new ImageIcon("Yeti" + j + i + ".png");
                 ImgMovement[i][j] = iiLoadYeti.getImage();
             }
-        }
-        
-        try {
-            Attack1 = Applet.newAudioClip(AttackSound1.toURL());
-
-        } catch (Exception e) {
-        }
+        } 
         x = 1000;
         y = 238;
         dx = 0;
@@ -69,7 +60,6 @@ public class Yeti {
     }
 
     public Image getImage() {
-        //switching what image will be painted
         ImgYeti = ImgMovement[i][f];
         if (right == true) {
             if (f == 0) {
@@ -111,15 +101,13 @@ public class Yeti {
 
         } else if (code == KeyEvent.VK_W) {
             //if you walk to the left or right while at the max height you ignor the barrier
-            up = true;
-            if (y - 45 <= 45) {
-                y = 45;
-            } else {
-                dy = -45;
-
-            }
-            canJump = false;
-            code = 0;
+                up = true;
+                if (y - 45 <= 45) {
+                    y = 45;
+                } else {
+                    dy = -45;
+                    canJump = false;
+                }
 
         } else if (code == KeyEvent.VK_S) {
             down = true;
@@ -157,23 +145,6 @@ public class Yeti {
             } else {
                 dy = 0;
             }
-        }
-    }
-
-    public void keyPressed2(KeyEvent k2) {
-        int code2 = k2.getKeyCode();
-        if (code2 == KeyEvent.VK_Z && canAttack == true) {
-            System.out.println("attacking");
-            Attack1.play();
-            canAttack = false;
-        }
-    }
-
-    public void keyReleased2(KeyEvent k2) {
-        int code2 = k2.getKeyCode();
-        if (code2 == KeyEvent.VK_Z) {
-            System.out.println("done attacking");
-            canAttack = true;
         }
     }
 

@@ -1,4 +1,4 @@
-package version5;
+package OptionPanelScratchfixerupper;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -34,7 +34,6 @@ public class PanDisplay extends JPanel implements ActionListener {
         setBackground(Color.black);
         yeti = new Yeti();
         addKeyListener(new MovementChecker());
-        addKeyListener(new AttackChecker());
         setFocusable(true);
         timer = new Timer(80, this);
         ////This is a toggle, so that we dont constantly generate levels
@@ -122,18 +121,6 @@ public class PanDisplay extends JPanel implements ActionListener {
         @Override
         public void keyPressed(KeyEvent k) {
             yeti.keyPressed(k);
-        }
-    }
-     private class AttackChecker extends KeyAdapter {
-
-        @Override
-        public void keyReleased(KeyEvent k2) {
-            yeti.keyReleased2(k2);
-        }
-
-        @Override
-        public void keyPressed(KeyEvent k2) {
-            yeti.keyPressed2(k2);
         }
     }
 }

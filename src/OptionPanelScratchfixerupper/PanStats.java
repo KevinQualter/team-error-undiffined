@@ -1,4 +1,5 @@
-package version5;
+package OptionPanelScratchfixerupper;
+
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -31,8 +32,8 @@ public class PanStats extends JPanel {
     Boolean bTimeChanged;
     Timer timer;
     int Time1 = 0;
-    int Time2 = 6;
-    int Time3 = 5;
+    int Time2 = 0;
+    int Time3 = 9;
     int nLife = 3;
     int nCoins1 = 0;
     int nCoins2 = 0;
@@ -92,7 +93,6 @@ public class PanStats extends JPanel {
                     Time2 = 1;
                     Time3 = 0;
                     nLife--;
-                    //exit game if time hits 0 while player has one life left
                             if(nLife == 0){
                                 System.exit(0);
                             }
