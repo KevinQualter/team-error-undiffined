@@ -195,7 +195,6 @@ public class Yeti {
                     i = 0;
                 }
             }
-
         }
     };
     ActionListener GravDrop = new ActionListener() {
@@ -206,8 +205,6 @@ public class Yeti {
                     y += 5;
                 }
             }
-
-
         }
     };
     ActionListener jumpingCheck = new ActionListener() {

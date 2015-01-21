@@ -22,10 +22,11 @@ public class PanDisplay extends JPanel implements ActionListener {
     private Timer timer;
     int nLevel[] = new int[10];
     boolean bGenLevel = true;
-    Image iRooms[] = new Image[4];
+    Image iRooms[] = new Image[6];
     ////
-    int nPlat[] = new int[50];
+    int nNumRooms = 10;
     ////
+    int nBgXEND = 1250 * (nNumRooms - 1);
 
     public PanDisplay() {
 
@@ -34,16 +35,16 @@ public class PanDisplay extends JPanel implements ActionListener {
         setBackground(Color.black);
         yeti = new Yeti();
         addKeyListener(new MovementChecker());
-        addKeyListener(new AttackChecker());
         setFocusable(true);
         timer = new Timer(80, this);
         ////This is a toggle, so that we dont constantly generate levels
         if (bGenLevel = true) {
             ////The '4' value determines how many rooms to generate
-            GenerateLevel(4);
+            GenerateLevel();
             bGenLevel = false;
         }
-        for (int i = 0; i < 4; i++) {
+        ////Generates the platforms based on rooms
+        for (int i = 0; i < 6; i++) {
             ImageIcon iiTemp = new ImageIcon("BG" + i + ".png");
             iRooms[i] = iiTemp.getImage();
         }
@@ -51,28 +52,15 @@ public class PanDisplay extends JPanel implements ActionListener {
     }
 
     ////Generates the level backgrounds
-    public void GenerateLevel(int nNumRooms) {
+    public void GenerateLevel() {
         for (int i = 0; i < nNumRooms; i++) {
             ////the 4 is the # of room types
             ////For some reson it generates twice. This causes no problems, however.
             nLevel[i] = (int) (Math.random() * 4);
-        }
-    }
 
-    public void GeneratePlatforms(int nNumRooms) {
-        int nPlatX=0;
-        for (int i = 0; i < nNumRooms; i++) {
-            //nPlat[i]
-            if (nLevel[i] == 1) {
-            }
-            if (nLevel[i] == 2) {
-            }
-            if (nLevel[i] == 3) {
-            }
-            if (nLevel[i] == 4) {
-            }
-            nPlatX+=1250;
         }
+        nLevel[0] = 4;
+        nLevel[nNumRooms - 1] = 5;
     }
     ////Changes the BG's x-value
 
@@ -88,21 +76,59 @@ public class PanDisplay extends JPanel implements ActionListener {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
+        
         ////Paints the Bg's
         try {
-            g2d.drawImage(iRooms[nLevel[0]], nBgX, 0, null);
-            g2d.drawImage(iRooms[nLevel[1]], nBgX + iRooms[nLevel[0]].getWidth(this), 0, null);
-            g2d.drawImage(iRooms[nLevel[2]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 2, 0, null);
-            g2d.drawImage(iRooms[nLevel[3]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 3, 0, null);
-            g2d.drawImage(iRooms[nLevel[4]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 4, 0, null);
-            g2d.drawImage(iRooms[nLevel[5]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 5, 0, null);
-            g2d.drawImage(iRooms[nLevel[6]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 6, 0, null);
-            g2d.drawImage(iRooms[nLevel[7]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 7, 0, null);
-            g2d.drawImage(iRooms[nLevel[8]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 8, 0, null);
-            g2d.drawImage(iRooms[nLevel[9]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 9, 0, null);
-            //TEST
-            nBgX -= 10;
-            //TEST
+            nBgXEND -= 8;
+            if (nBgXEND >= 0) {
+                nBgX -= 8;
+            }
+            ////Room 1
+            if (nNumRooms >= 1) {
+                g2d.drawImage(iRooms[nLevel[0]], nBgX, 0, null);
+            }
+            ////Room 2
+
+            if (nNumRooms >= 2) {
+                g2d.drawImage(iRooms[nLevel[1]], nBgX + iRooms[nLevel[0]].getWidth(this), 0, null);
+
+            }
+
+            ////Room 3
+            if (nNumRooms >= 3) {
+                g2d.drawImage(iRooms[nLevel[2]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 2, 0, null);
+
+            }
+            ////Room 4
+            if (nNumRooms >= 4) {
+                g2d.drawImage(iRooms[nLevel[3]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 3, 0, null);
+
+            }
+            ////Room 5
+            if (nNumRooms >= 5) {
+                g2d.drawImage(iRooms[nLevel[4]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 4, 0, null);
+
+            }
+            ////Room 6
+            if (nNumRooms >= 6) {
+                g2d.drawImage(iRooms[nLevel[5]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 5, 0, null);
+            }
+            ////Room 7
+            if (nNumRooms >= 7) {
+                g2d.drawImage(iRooms[nLevel[6]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 6, 0, null);
+            }
+            ////Room 8
+            if (nNumRooms >= 8) {
+                g2d.drawImage(iRooms[nLevel[7]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 7, 0, null);
+            }
+            ////Room 9
+            if (nNumRooms >= 9) {
+                g2d.drawImage(iRooms[nLevel[8]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 8, 0, null);
+            }
+            ////Room 10
+            if (nNumRooms >= 10) {
+                g2d.drawImage(iRooms[nLevel[9]], nBgX + (iRooms[nLevel[0]].getWidth(this)) * 9, 0, null);
+            }  
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -124,7 +150,8 @@ public class PanDisplay extends JPanel implements ActionListener {
             yeti.keyPressed(k);
         }
     }
-     private class AttackChecker extends KeyAdapter {
+
+    private class AttackChecker extends KeyAdapter {
 
         @Override
         public void keyReleased(KeyEvent k2) {
