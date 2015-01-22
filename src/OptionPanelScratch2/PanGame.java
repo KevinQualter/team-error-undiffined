@@ -1,5 +1,5 @@
 
-package OptionPanelScratchfixerupper;
+package OptionPanelScratch2;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 

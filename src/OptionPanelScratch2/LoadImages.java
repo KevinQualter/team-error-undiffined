@@ -1,4 +1,4 @@
-package OptionPanelScratchfixerupper;
+package OptionPanelScratch2;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
