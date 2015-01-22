@@ -1,8 +1,47 @@
-.LOG
+kevin:
 
-Today I embarked on the task of putting an image into the background for the game,
-it is the end of the class now however and I have not been able to load this however i was able to brush up and
-improve on my knowledge from last year.  This is the true sucess
+
+
+
+dec 9
+cleaning up movement, solving import of old pakage issue
+
+dec 10 
+some issues with barriers at min and max X Co-ordinate. not sure why.
+
+dec 11
+rewrote the barrier code and it worked not sure why because i rewrote it 
+line by line, but it works and thats good enough for me.
+
+started looking at swiching the horizontal movement to the background image
+
+dec 12 presentation 
+
+
+dec 15 - 18
+
+added the attack function  
+
+dec 29 attack sound
+
+jan 2 background music
+
+jan 3 background music looping
+
+jan 4-9 clean up and creation of presentation
+
+final week watching presontations, and cleaning up code
+
+
+
+
+
+
+Miguel:
+
+
+
+
 
 2:27 PM 21/10/2014
 
@@ -55,5 +94,48 @@ With this plan of action I hope to catch problems preemptively before they becom
 
 12:28 PM 25/11/2014
 
-We reset our frame size to a fixed position to avoid inconsistancies.  The set frame size fixed a lot of issues, 
-with this we can keep consistancy with coordinates, and not have to worry about screensizes that are larger than ours.
+We reset our frame size to a fixed position to avoid inconsistan
+
+
+
+
+ashton:
+
+
+
+
+22/10/2014
+-Cut out sprites, which I found out we don't need.
+
+23/10/2014
+-I made the life sprites today. But due to re assessment of their quality, I made another set
+
+24/10/2014
+-I made the text for our GUI.
+
+17/10/2014
+-I Made an image appear on the screen (Couldn't last year)
+
+18/10/2014
+-Made Pedo-Bear Sprite
+-Made Nick Cage Sprite
+
+29/10/2014
+-I started learning animation. The sprite sheet supposedly is separated in the program, 
+ But I am yet to figure out how to call on it.
+
+03/11/2014
+-Made Game over Screen
+
+04/11/2014
+-I rearranged my animation test.
+
+06/11/2014
+-Close to animation Working, but keep getting “java.lang.NullPointerException” on attempted add to pane
+
+13/11/2014
+-The team and I decided to change how we animate: we are now doing individual image loading rather than the sprite-sheet-style. I have a plan of how to do this, and am much relived because for the past 3 days I have been struggling to learn sprite sheets.
+
+14/11/2014
+“java.lang.NullPointerException” still blocks my adepts to draw an image
+

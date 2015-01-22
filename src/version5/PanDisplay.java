@@ -24,7 +24,7 @@ public class PanDisplay extends JPanel implements ActionListener {
     boolean bGenLevel = true;
     Image iRooms[] = new Image[6];
     ////
-    int nNumRooms = 10;
+    int nNumRooms = 2;
     ////
     int nBgXEND = 1250 * (nNumRooms - 1);
 
